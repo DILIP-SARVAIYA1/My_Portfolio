@@ -264,7 +264,7 @@ span {
 
 .portfolio-box img {
   width: 100%;
-  height: 200px;
+  /* height: 200px; */
   transition: 0.5s ease;
 }
 
@@ -283,7 +283,7 @@ span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), var(--main-color));
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--second-bg-color));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,6 +295,7 @@ span {
 
 .portfolio-layer h4 {
   font-size: 2.6rem;
+  color: rgb(65, 223, 40);
 }
 
 .portfolio-layer p {
@@ -321,43 +322,19 @@ span {
   margin-bottom: 3rem;
 }
 
-.contact form {
+.contact .mainDiv {
   max-width: 70rem;
   margin: 1rem auto;
   text-align: center;
   margin-bottom: 3rem;
 }
-
-.contact form .input-box {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.contact > .mainDiv > h3 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
 }
-
-.contact form .input-box input,
-.contact form textarea {
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 1.6rem;
-  color: var(--txt-color);
-  background: var(--second-bg-color);
-  border-radius: 0.8rem;
-  margin: 0.7rem 0;
+.contact > .mainDiv > h3 > a {
+  color: green;
 }
-
-.contact form .input-box input {
-  width: 49%;
-}
-
-.contact form textarea {
-  resize: none;
-}
-
-.contact form .btn {
-  margin-top: 2rem;
-  cursor: pointer;
-}
-
 .footer {
   display: flex;
   justify-content: space-between;
@@ -515,10 +492,6 @@ span {
 @media (max-width: 450px) {
   html {
     font-size: 50%;
-  }
-
-  .contact form .input-box input {
-    width: 100%;
   }
   .portfolio-box .portfolio-layer {
     transform: translateY(0);
