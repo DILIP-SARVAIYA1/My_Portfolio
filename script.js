@@ -12,7 +12,7 @@ let navLinks = document.querySelectorAll("header nav a");
 window.onscroll = () => {
   sections.forEach((sec) => {
     let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
+    let offset = sec.offsetTop - 10;
     let height = sec.offsetHeight;
     let id = sec.getAttribute("id");
 
@@ -26,15 +26,15 @@ window.onscroll = () => {
     }
   });
   let header = document.querySelector("header");
-  header.classList.toggle("sticky", window.scrollY > 100);
+  header.classList.toggle("sticky", window.scrollY > 0);
   menuIcon.classList.remove("fa-x");
   navbar.classList.remove("active");
 };
 
 ScrollReveal({
   // reset:true,
-  distance: "80px",
-  duration: 2000,
+  distance: "20px",
+  duration: 500,
   delay: 100,
 });
 ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
