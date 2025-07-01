@@ -1,10 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500&family=Mukta:wght@200;400&family=Poppins:wght@200;300;400&family=Ubuntu&display=swap");
 
 :root {
-  --bg-color: #1f242d;
-  --second-bg-color: #383a3a;
-  --txt-color: #edebeb;
-  --main-color: rgb(59, 170, 210);
+  --bg-color: #18122b; /* Deep purple background */
+  --second-bg-color: #393053; /* Muted purple secondary */
+  --txt-color: #f7efe5; /* Soft off-white text */
+  --main-color: #ff6c22; /* Vibrant orange accent */
+}
+
+/* Light mode variables */
+.light-mode {
+  --bg-color: #f7efe5;
+  --second-bg-color: #fff;
+  --txt-color: #18122b;
+  --main-color: #ff6c22;
 }
 
 * {
@@ -33,6 +41,7 @@ section {
   padding: 10rem 9% 2rem;
 }
 
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -44,18 +53,21 @@ section {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+  transition: box-shadow 0.3s, background-color 0.3s;
 }
 
 .header.sticky {
   border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 20px #000;
-  background-color: rgb(43, 42, 42);
+  background-color: rgb(2, 13, 51);
 }
+
 .header > img {
   height: 50px;
   object-fit: contain;
 }
 
+/* Logo */
 .logo {
   font-size: 2.5rem;
   color: var(--txt-color);
@@ -64,24 +76,32 @@ section {
   cursor: default;
 }
 
+/* Navbar */
 .navbar a {
   font-size: 1.7rem;
   color: var(--txt-color);
   margin-left: 4rem;
-  transition: 0.3s;
+  transition: color 0.3s;
+  outline: none;
 }
 
 .navbar a:hover,
-.navbar a.active {
+.navbar a.active,
+.navbar a:focus {
   color: var(--main-color);
 }
 
+/* Menu Icon */
 #menu-icon {
   font-size: 3.6rem;
   color: var(--txt-color);
   display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
+/* Home Section */
 .home {
   display: flex;
   justify-content: space-between;
@@ -98,11 +118,9 @@ section {
   0% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-2.4rem);
   }
-
   100% {
     transform: translateY(0);
   }
@@ -131,6 +149,7 @@ span {
   font-size: 1.6rem;
 }
 
+/* Social Media */
 .social-media a {
   display: inline-flex;
   justify-content: center;
@@ -143,10 +162,11 @@ span {
   font-size: 2rem;
   color: var(--main-color);
   margin: 3rem 1.5rem 3rem 0;
-  transition: 0.5s ease;
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 
-.social-media a:hover {
+.social-media a:hover,
+.social-media a:focus {
   background-color: var(--main-color);
   color: var(--second-bg-color);
   box-shadow: 0 0 0.5rem var(--main-color);
@@ -369,7 +389,22 @@ span {
   box-shadow: 0 0 3rem var(--main-color);
 }
 
-/* Responsive */
+#toggle-dark {
+  background: none;
+  border: none;
+  color: var(--main-color);
+  font-size: 2.4rem;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+#toggle-dark:hover {
+  color: var(--txt-color);
+}
+#toggle-dark {
+  z-index: 1000;
+}
+/* Responsive: Place from largest to smallest for clarity */
 @media (max-width: 1200px) {
   html {
     font-size: 55%;
@@ -383,26 +418,19 @@ span {
   .header {
     padding: 2rem 3%;
   }
-
   section {
     padding: 10rem 3% 2rem;
   }
-
   .footer {
     padding: 2rem 3%;
   }
-
-  .services {
-    padding-bottom: 7rem;
-  }
-
+  .services,
   .portfolio {
     padding-bottom: 7rem;
   }
   .portfolio-box .portfolio-layer {
     transform: translateY(0);
   }
-
   .contact {
     min-height: auto;
   }
@@ -412,7 +440,6 @@ span {
   #menu-icon {
     display: block;
   }
-
   .navbar {
     position: absolute;
     top: 100%;
@@ -424,55 +451,41 @@ span {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     display: none;
   }
-
   .navbar.active {
     display: block;
   }
-
   .navbar a {
     display: block;
     font-size: 2rem;
     margin: 3rem 0;
   }
-
   .home {
     flex-direction: column;
   }
-
   .home-content h3 {
     font-size: 2.6rem;
   }
-
   .home-content h1 {
     font-size: 5rem;
   }
-
   .home-image img {
     width: 70vw;
     margin-top: 4rem;
   }
-
   .about {
     flex-direction: column-reverse;
   }
-
   .about-img img {
     width: 70vw;
     margin-top: 4rem;
   }
-
   .services {
     margin-bottom: 5rem;
   }
-
-  .services h2 {
-    margin-bottom: 3rem;
-  }
-
+  .services h2,
   .portfolio h2 {
     margin-bottom: 3rem;
   }
-
   .portfolio-container {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for Dilip Sarvaiya Portfolio
+# Learn more: https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://your-domain.com/sitemap.xml
