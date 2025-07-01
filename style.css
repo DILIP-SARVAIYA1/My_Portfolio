@@ -1,18 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500&family=Mukta:wght@200;400&family=Poppins:wght@200;300;400&family=Ubuntu&display=swap");
 
 :root {
-  --bg-color: #18122b; /* Deep purple background */
-  --second-bg-color: #393053; /* Muted purple secondary */
-  --txt-color: #f7efe5; /* Soft off-white text */
-  --main-color: #ff6c22; /* Vibrant orange accent */
+  --bg-color: #181a20; /* Deep blue-gray background */
+  --second-bg-color: #23263a; /* Slightly lighter for cards/sections */
+  --txt-color: #f5f6fa; /* Bright, soft white text */
+  --main-color: #22d4fd; /* Vibrant modern cyan/teal accent */
+  --accent-color: #ff4c98; /* Pink accent for highlights/buttons */
+  --success-color: #22c55e; /* Green for links/success */
+  --danger-color: #ff6b6b; /* Red for errors/danger */
 }
 
 /* Light mode variables */
 .light-mode {
-  --bg-color: #f7efe5;
+  --bg-color: #f5f6fa;
   --second-bg-color: #fff;
-  --txt-color: #18122b;
-  --main-color: #ff6c22;
+  --txt-color: #181a20;
+  --main-color: #0077ff; /* Modern blue accent for light mode */
+  --accent-color: #ff4c98;
+  --success-color: #22c55e;
+  --danger-color: #ff6b6b;
 }
 
 * {
@@ -54,12 +60,12 @@ section {
   justify-content: space-between;
   z-index: 10;
   transition: box-shadow 0.3s, background-color 0.3s;
+  color: var(--txt-color);
 }
 
 .header.sticky {
   border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
   box-shadow: 1px 1px 20px #000;
-  background-color: rgb(2, 13, 51);
 }
 
 .header > img {
@@ -116,13 +122,13 @@ section {
 
 @keyframes floatimage {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-2.4rem);
+    transform: translateY(-2.4rem) scale(1.04);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -168,17 +174,16 @@ span {
 .social-media a:hover,
 .social-media a:focus {
   background-color: var(--main-color);
-  color: var(--second-bg-color);
-  box-shadow: 0 0 0.5rem var(--main-color);
+  color: var(--bg-color);
 }
 
 .btn {
   display: inline-block;
   padding: 1.3rem 2.8rem;
-  background: var(--main-color);
+  background: linear-gradient(90deg, var(--main-color), var(--accent-color));
   border-radius: 4rem;
   font-size: 1.6rem;
-  color: var(--second-bg-color);
+  color: #fff;
   letter-spacing: 0.1rem;
   font-weight: 500;
   transition: 0.5s ease;
@@ -187,7 +192,8 @@ span {
 }
 
 .btn:hover {
-  box-shadow: 0 0 0.3rem var(--txt-color);
+  background: var(--accent-color);
+  color: #fff;
 }
 
 /* about section styling */
@@ -303,7 +309,7 @@ span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), #000);
+  background: linear-gradient(var(--accent-color), #000);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -322,6 +328,7 @@ span {
 .portfolio-layer p {
   font-size: 1.6rem;
   margin: 0.3rem 0 1rem;
+  color: var(--txt-color);
 }
 
 .portfolio-layer a {
@@ -345,17 +352,44 @@ span {
 
 .contact .mainDiv {
   max-width: 70rem;
-  margin: 1rem auto;
+  margin: 1rem auto 3rem auto;
   text-align: center;
-  margin-bottom: 3rem;
 }
-.contact > .mainDiv > h3 {
-  font-size: 3rem;
-  margin-bottom: 4rem;
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
 }
-.contact > .mainDiv > h3 > a {
-  color: green;
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--second-bg-color);
+  color: var(--txt-color);
+  padding: 1.2rem 2.4rem;
+  border-radius: 2.5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #22d4fd22;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 }
+
+.contact-link i {
+  font-size: 2.2rem;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  box-shadow: 0 0 1rem var(--main-color);
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -542,5 +576,48 @@ span {
   .footer p {
     text-align: center;
     margin-top: 2rem;
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+}
+.fade-in-left {
+  animation: fadeInLeft 1s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+}
+.fade-in-right {
+  animation: fadeInRight 1s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

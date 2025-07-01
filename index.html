@@ -35,8 +35,8 @@
     </header>
     <main>
       <!-- Home Section -->
-      <section class="home" id="home">
-        <div class="home-content">
+      <section class="home fade-in-up" id="home">
+        <div class="home-content fade-in-left">
           <h3>Hello, it's me</h3>
           <h1>Dilip Sarvaiya</h1>
           <h3>I'm a <span class="multiple-text"></span></h3>
@@ -83,7 +83,7 @@
             >Download CV</a
           >
         </div>
-        <div class="home-image">
+        <div class="home-image fade-in-right">
           <img src="images/dilip.png" alt="Dilip Sarvaiya" />
         </div>
       </section>
@@ -97,7 +97,7 @@
           <h2 class="heading">About <span>Me</span></h2>
           <h3>Frontend Developer</h3>
           <p>
-            I am a career-changer with 6+ years of experience in MNCs, now
+            I am a career-changer with 8+ years of experience in MNCs, now
             focused on frontend development. I have completed advanced courses
             in JavaScript and React (Namaste React), and I am eager to bring my
             fast learning and problem-solving skills to the tech industry.
@@ -209,16 +209,30 @@
       <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
         <div class="mainDiv">
-          <h3>
-            Email:
-            <a href="mailto:dilipsarvaiya992@gmail.com"
-              >dilipsarvaiya992@gmail.com</a
+          <div class="contact-methods">
+            <a
+              href="mailto:dilipsarvaiya992@gmail.com"
+              class="contact-link"
+              aria-label="Email"
             >
-          </h3>
-          <h3>
-            Phone:
-            <a href="tel:+918154810034">+91 81548 10034</a>
-          </h3>
+              <i class="fa-solid fa-envelope"></i>
+              <span>dilipsarvaiya992@gmail.com</span>
+            </a>
+            <a href="tel:+918154810034" class="contact-link" aria-label="Phone">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 81548 10034</span>
+            </a>
+            <a
+              href="https://wa.me/918154810034"
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp Me</span>
+            </a>
+          </div>
         </div>
       </section>
 
